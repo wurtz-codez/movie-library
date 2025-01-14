@@ -1,23 +1,9 @@
-.header-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem 0;
-}
-
 .homepage-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; /* Changed from center to flex-start */
   height: 100vh; /* Adjusted height */
-  padding-top: 15vh; /* Adjust this value as needed */
 }
 
 form {
@@ -72,11 +58,9 @@ button:hover {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 4rem;
-  margin-bottom: 1rem;
   text-align: center;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 1);
   backdrop-filter: blur(5px);
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
