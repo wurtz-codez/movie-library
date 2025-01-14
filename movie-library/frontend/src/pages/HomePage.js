@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import SearchBar from '../components/SearchBar'
 import MovieList from '../components/MovieList'
 import { fetchMovies } from '../api'
+import './HomePage.css'
 
 const HomePage = () => {
 
@@ -13,7 +14,7 @@ const HomePage = () => {
   };
   
   return (
-    <div>
+    <div className="homepage-container">
       <SearchBar onSearch={handleSearch} />
       <MovieList movies={movies} />
     </div>
