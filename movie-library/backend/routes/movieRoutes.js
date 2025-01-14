@@ -8,6 +8,17 @@ router.get('/', async(req, res) => {
   res.json(movies);
 });
 
+//route to fetch favorite movies
+router.get('/favorites', async (req, res) => {
+  try {
+      const favoriteMovies = await Movie.find({ isFavorite: true });
+      res.status(200).json(favoriteMovies);
+  } catch (error) {
+      res.status(500).json({ message: "Error fetching favorite movies", error });
+  }
+});
+
+
 //route to toggle favorite status
 router.put('/:id/favorite', async (req, res) => {
   try {
