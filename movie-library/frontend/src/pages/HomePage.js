@@ -5,7 +5,6 @@ import { fetchMovies } from '../api'
 import './HomePage.css'
 
 const HomePage = () => {
-
   const [movies, setMovies] = useState([]);
 
   const handleSearch = async (query) => {
@@ -14,10 +13,15 @@ const HomePage = () => {
   };
   
   return (
-    <div className="homepage-container">
-      <SearchBar onSearch={handleSearch} />
-      <MovieList movies={movies} />
-    </div>
+    <>
+      <div className="header-container">
+        <h1 className='title'>Movie Library</h1>
+        <SearchBar onSearch={handleSearch} />
+      </div>
+      <div className="homepage-container">
+        <MovieList movies={movies} />
+      </div>
+    </>
   )
 }
 

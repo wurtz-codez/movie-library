@@ -12,15 +12,16 @@ const MovieCard = ( {movie, onUpdate} ) => {
     }
   }
   
-  return (
-          <div className="movie-card">
-            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
-            <h3>{movie.title}</h3>
-            <p>{movie.description}</p>
-            <button onClick={handleFavorite}>
-                {movie.isFavorite ? 'Unfavorite' : 'Favorite'}
-            </button>
-          </div>
+  return ( <>
+  </>
+          // <div className="movie-card">
+          //   <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+          //   <h3>{movie.title}</h3>
+          //   <p>{movie.description}</p>
+          //   <button onClick={handleFavorite}>
+          //       {movie.isFavorite ? 'Unfavorite' : 'Favorite'}
+          //   </button>
+          // </div>
   )
 }
 

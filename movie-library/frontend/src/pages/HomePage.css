@@ -1,9 +1,23 @@
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
 .homepage-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 70vh;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  height: 100vh; /* Adjusted height */
+  padding-top: 15vh; /* Adjust this value as needed */
 }
 
 form {
@@ -13,6 +27,7 @@ form {
 }
 
 input[type='text'] {
+  padding-left: 0.5rem;
   margin-right: 10px;
   border: 1px solid gray;
   border-radius: 0.5rem;
@@ -21,9 +36,9 @@ input[type='text'] {
 }
 
 button {
-  background-color: #4CAF50;
+  background-color: purple;
   color: white;
-  border: none;
+  border: 1px solid white;
   border-radius: 0.5rem;
   width: 6rem;
   height: 2rem;
@@ -31,5 +46,68 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: white;
+  color: purple;
+  transition: 0.4s;
+  scale: 1.1;
 }
+
+.favorite-button {
+  background-color: purple;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-bottom: 5px;
+}
+
+.favorite-button:hover {
+  background-color: white;
+  color: purple;
+  transition: 0.4s;
+}
+
+.title {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 1);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem; /* Adjust this value as needed */
+}
+
+.movies-list img {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.movie-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px;
+}
+
+.movie-item h3 {
+  margin-bottom: 0.5rem;
+}
+

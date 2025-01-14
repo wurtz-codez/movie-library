@@ -3,7 +3,7 @@ import axios from 'axios';
 import MovieCard from './MovieCard';
 
 
-const MovieList = ({movies}) => {
+const MovieList = ({movies, onUpdate}) => {
 
   const [movieList, setMovieList] = useState([]);
 
@@ -23,35 +23,36 @@ const MovieList = ({movies}) => {
     setMovieList((prevMovies) => prevMovies.map((movie) =>   movie._id === updatedMovie._id ? updatedMovie : movie));
   };
 
+  const handleFavoriteClick = async(movie) => {
+    console.log(`Favorite clicked for movie: ${movie.title}`);
+    try{
+      const response = await axios.put(`/movies/${movie._id}/favorite`);
+      onUpdate(response.data.movie);
+    }
+    catch(error){
+      console.error('Error updating favorite status',error); 
+    }
+  };
+
   
   return (
     <div>
-      {/* <h2>Movie List</h2>
-      <ul>
+      <div className="movies-list">
         {movies.map((movie) => (
-          <li key={movie.id}>
+          <div key={movie.id} className="movie-item">
             <h3>{movie.title}</h3>
             <p>{movie.description}</p>
-            <p>{movie.releaseDate}</p>
-            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} loading="lazy" />
-          </li>
+            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+            <button 
+              className="favorite-button" 
+              onClick={() => handleFavoriteClick(movie)}
+            >
+              Favorite
+            </button>
+            <MovieCard key={movie._id} movie={movie} onUpdate={handleUpdate} />
+          </div>
         ))}
-      </ul>   */}
-
-            <div className="movies-list">
-            {movies.map((movie) => (
-                <MovieCard key={movie._id} movie={movie} onUpdate={handleUpdate} />
-            ))}
-        </div>
-      {/* {movies.map((movie) => (
-        <div key={movie.id}>
-          <h3>{movie.title}</h3>
-          <img 
-            src = {`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-            alt={movie.title}
-          ></img>
-        </div>
-      ))} */}
+      </div>
     </div>
   );
 };
